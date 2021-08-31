@@ -24,6 +24,10 @@ CARBONLANG = "auto"
 
 LANG = "en"
 
+# Fixed by madboy482
+CHROME_BIN = os.environ.get("CHROME_BIN", "/app/.apt/usr/bin/google-chrome")
+CHROME_DRIVER = os.environ.get("CHROME_DRIVER", "/app/.chromedriver/bin/chromedriver")
+# Fixed by madboy482
 
 @register(outgoing=True, pattern="^.carbon")
 async def carbon_api(e):
@@ -60,7 +64,7 @@ async def carbon_api(e):
 
         chrome_options.add_argument("--headless")
 
-        chrome_options.binary_location = GOOGLE_CHROME_BIN
+        chrome_options.binary_location = CHROME_BIN
 
         chrome_options.add_argument("--window-size=1920x1080")
 
